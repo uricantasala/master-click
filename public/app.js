@@ -52,7 +52,7 @@ socket.on("new click",(data) => {
     console.log("holi")
     console.log(data)
     console.log(JSON.stringify(data))
-    numClicksText.innerText = JSON.stringify(data)
+    numClicksText.innerText = JSON.stringify(data.numClicks)
 });
 
 sendButton.onclick = () => {
