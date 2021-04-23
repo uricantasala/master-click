@@ -51,7 +51,8 @@ socket.on("numero de usuarios", (data) => {
 socket.on("new click",(data) => {
     console.log("holi")
     console.log(data)
-    numClicksText.innerText = data.numClicks
+    console.log(JSON.stringify(data))
+    numClicksText.innerText = JSON.stringify(data)
 });
 
 sendButton.onclick = () => {
