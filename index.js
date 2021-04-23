@@ -26,7 +26,7 @@ io.on("connection", (socket) => {
     // evento para saber quien es el username del socket abierto y emite el
     // username y usersConnected
     socket.on("iam", (username) => {
-        socket.broadcast.emit("usuario conectado en la app", {
+        socket.broadcast.emit("usuario conectado", {
             username,
             usersConnected,
         });
