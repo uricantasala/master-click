@@ -10,6 +10,8 @@ app.use(cors());
 app.use(express.static("public"));
 
 let usersConnected = 0;
+let numClicks = 0;
+console.log("hi uf")
 
 // escuchar conexiones
 io.on("connection", (socket) => {
@@ -32,6 +34,12 @@ io.on("connection", (socket) => {
         });
         socket.username = username;
         socket.emit("numero de usuarios", usersConnected);
+    });
+    socket.on("click", () => {
+        console.log("hi")
+        numClicks++;
+        socket.broadcast.emit("new click", 
+           numClicks);
     });
 
     // detecta la desconexión y emite un evento al cliente con el username desconectado

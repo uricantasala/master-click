@@ -3,6 +3,7 @@ let sendButton = document.querySelector("#sendButton");
 let textMessage = document.querySelector("#textMessage");
 
 let usersConnected = document.getElementById("counter");
+let numClicksText = document.getElementById("clicksTxt");
 
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -47,7 +48,13 @@ socket.on("connect", () => {
 socket.on("numero de usuarios", (data) => {
     usersConnected.innerText = data;
 });
+socket.on("new click",(data) => {
+    console.log("holi")
+    console.log(data)
+    numClicksText.innerText = data.numClicks
+});
 
 sendButton.onclick = () => {
-    socket.emit("message", textMessage.value);
+    console.log("click")
+    socket.emit("click","");
 };
