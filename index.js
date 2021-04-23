@@ -37,7 +37,7 @@ io.on("connection", (socket) => {
     socket.on("click", () => {
         console.log("hi")
         numClicks++;
-        socket.broadcast.emit("new click", {
+        io.emit("new click", {
            numClicks});
     });
 
