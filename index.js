@@ -39,7 +39,6 @@ io.on("connection", (socket) => {
     });
 
     socket.on("click", () => {
-        console.log("hi");
         numClicks++;
         io.emit("new click", {
             numClicks,
