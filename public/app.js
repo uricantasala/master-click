@@ -46,16 +46,17 @@ socket.on("connect", () => {
 });
 
 socket.on("numero de usuarios", (data) => {
-    usersConnected.innerText = data;
+    usersConnected.innerText = data.usersConnected;
+    numClicksText.innerHTML = data.numClicks;
 });
-socket.on("new click",(data) => {
-    console.log("holi")
-    console.log(data)
-    console.log(JSON.stringify(data))
-    numClicksText.innerText = JSON.stringify(data.numClicks)
+socket.on("new click", (data) => {
+    console.log("holi");
+    console.log(data);
+    console.log(JSON.stringify(data));
+    numClicksText.innerText = JSON.stringify(data.numClicks);
 });
 
 sendButton.onclick = () => {
-    console.log("click")
-    socket.emit("click","");
+    console.log("click");
+    socket.emit("click", "");
 };

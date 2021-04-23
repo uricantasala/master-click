@@ -15,37 +15,10 @@
                 font-family: "Nunito", sans-serif;
             }
 
-            #app {
+            .game {
                 display: flex;
-                flex-direction: column;
-                padding: 10px;
-                height: 100vh;
-                gap: 1em;
-            }
-
-            #chat {
-                flex-grow: 1;
-                overflow-y: auto;
-            }
-
-            .buttons {
-                display: flex;
-                width: 100%;
-                gap: 1em;
-                height: 60px;
-            }
-            .buttons #textMessage {
-                padding: 1em;
-                flex-grow: 1;
-                overflow-y: auto;
-            }
-
-            .buttons button {
-                width: 100px;
-            }
-
-            .joined {
-                text-align: center;
+                flex-direction: row;
+                gap: 3em;
             }
         </style>
 
@@ -54,14 +27,11 @@
     </head>
     <body>
         <div id="app">
-            <h1>Chat.io <small id="counter">0</small></h1>
-
-            <div id="chat"></div>
-            <div class="buttons">
-                <textarea name="textMessage" id="textMessage"></textarea>
+            <h1>Master.Click.io <small id="counter">0</small></h1>
+            <div class="game">
                 <button id="sendButton">Enviar</button>
+                <div id="clicksTxt"></div>
             </div>
-            <div id="clicksTxt"></div>
         </div>
     </body>
 </html>

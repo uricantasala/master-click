@@ -32,13 +32,18 @@ io.on("connection", (socket) => {
             usersConnected,
         });
         socket.username = username;
-        socket.emit("numero de usuarios", usersConnected);
+        socket.emit("numero de usuarios", {
+            usersConnected,
+            numClicks,
+        });
     });
+
     socket.on("click", () => {
-        console.log("hi")
+        console.log("hi");
         numClicks++;
         io.emit("new click", {
-           numClicks});
+            numClicks,
+        });
     });
 
     // detecta la desconexión y emite un evento al cliente con el username desconectado
