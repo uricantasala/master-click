@@ -11,7 +11,6 @@ app.use(express.static("public"));
 
 let usersConnected = 0;
 let numClicks = 0;
-console.log("hi uf")
 
 // escuchar conexiones
 io.on("connection", (socket) => {
