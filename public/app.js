@@ -29,7 +29,6 @@ socket.on("usuario conectado", (data) => {
 });
 
 socket.on("usuario desconectado", (data) => {
-    console.log(data);
     const d = document.createElement("div");
     d.classList.add("joined");
     const t = document.createTextNode(
@@ -46,7 +45,11 @@ socket.on("connect", () => {
 });
 
 socket.on("numero de usuarios", (data) => {
-    usersConnected.innerText = data;
+    usersConnected.innerText = data.usersConnected;
+    numClicksText.innerHTML = data.numClicks;
+});
+socket.on("new click", (data) => {
+    numClicksText.innerText = data.numClicks;
 });
 socket.on("new click",(data) => {
     console.log("holi")
@@ -56,6 +59,5 @@ socket.on("new click",(data) => {
 });
 
 sendButton.onclick = () => {
-    console.log("click")
-    socket.emit("click","");
+    socket.emit("click", "");
 };

@@ -32,7 +32,17 @@ io.on("connection", (socket) => {
             usersConnected,
         });
         socket.username = username;
-        socket.emit("numero de usuarios", usersConnected);
+        socket.emit("numero de usuarios", {
+            usersConnected,
+            numClicks,
+        });
+    });
+
+    socket.on("click", () => {
+        numClicks++;
+        io.emit("new click", {
+            numClicks,
+        });
     });
     socket.on("click", () => {
         console.log("hi")
